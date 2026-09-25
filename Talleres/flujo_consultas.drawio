@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-09-24T18:30:00.000Z" agent="M365 Copilot" version="24.7.17">
+  <diagram id="flujo-consultas" name="Calcular Consultas">
+    <mxGraphModel dx="1200" dy="1800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="2000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- INICIO -->
+        <mxCell id="inicio" value="INICIO"
+          style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="460" y="20" width="140" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Entrada -->
+        <mxCell id="entrada" value="Recibir consultas y&#xa;cliente_frecuente"
+          style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="400" y="120" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Consultas vacías -->
+        <mxCell id="vacio" value="¿len(consultas) == 0?"
+          style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="425" y="230" width="210" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Retorno ceros -->
+        <mxCell id="retornoCero" value="Retornar:&#xa;subtotal = 0&#xa;descuento = 0&#xa;total = 0"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;"
+          vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- Inicialización -->
+        <mxCell id="inicializar" value="subtotal = 0&#xa;cantidad_consultas = 0"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="410" y="380" width="240" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- FOR -->
+        <mxCell id="for" value="Recorrer cada consulta&#xa;for consulta in consultas"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+          vertex="1" parent="1">
+          <mxGeometry x="410" y="500" width="240" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Sumar -->
+        <mxCell id="sumar" value="subtotal += consulta[&quot;precio&quot;]&#xa;cantidad_consultas += 1"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="395" y="620" width="270" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Descuento inicial -->
+        <mxCell id="desc0" value="descuento = 0"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="430" y="750" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Cantidad > 2 -->
+        <mxCell id="mas2" value="¿cantidad_consultas &gt; 2?"
+          style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="420" y="850" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- 10% -->
+        <mxCell id="desc10" value="descuento = 0.10&#xa;(10%)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="875" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Cantidad > 2 y subtotal > 100000 -->
+        <mxCell id="mas100" value="¿cantidad_consultas &gt; 2&#xa;y subtotal &gt; 100000?"
+          style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="405" y="1010" width="250" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- 15% -->
+        <mxCell id="desc15" value="descuento = 0.15&#xa;(15%)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="1035" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Cliente frecuente -->
+        <mxCell id="frecuente" value="¿cliente_frecuente?"
+          style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="420" y="1180" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- +5% -->
+        <mxCell id="desc5" value="descuento += 0.05&#xa;(+5%)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="1200" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Máximo descuento -->
+        <mxCell id="max25" value="¿descuento &gt; 0.25?"
+          style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="420" y="1340" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- descuento 25 -->
+        <mxCell id="desc25" value="descuento = 0.25&#xa;(máximo 25%)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;"
+          vertex="1" parent="1">
+          <mxGeometry x="100" y="1360" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Calculo total -->
+        <mxCell id="total" value="total = subtotal -&#xa;(subtotal * descuento)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="400" y="1500" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Retorno -->
+        <mxCell id="retorno" value="Retornar:&#xa;subtotal&#xa;descuento&#xa;total"
+          style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+          vertex="1" parent="1">
+          <mxGeometry x="420" y="1630" width="220" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- FIN -->
+        <mxCell id="fin" value="FIN"
+          style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="460" y="1780" width="140" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- CONEXIONES PRINCIPALES -->
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="inicio" target="entrada">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="entrada" target="vacio">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- VACÍO SÍ -->
+        <mxCell id="e3" value="Sí"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontStyle=1;"
+          edge="1" parent="1" source="vacio" target="retornoCero">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- VACÍO NO -->
+        <mxCell id="e4" value="No"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontStyle=1;"
+          edge="1" parent="1" source="vacio" target="inicializar">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="inicializar" target="for">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="for" target="sumar">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e7"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="sumar" target="desc0">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e8"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="desc0" target="mas2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- >2 SÍ -->
+        <mxCell id="e9" value="Sí"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontStyle=1;"
+          edge="1" parent="1" source="mas2" target="desc10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 10% a segunda condición -->
+        <mxCell id="e10"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="desc10" target="mas100">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- >2 NO -->
+        <mxCell id="e11" value="No"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontStyle=1;"
+          edge="1" parent="1" source="mas2" target="mas100">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- >2 y subtotal >100000 SÍ -->
+        <mxCell id="e12" value="Sí"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontStyle=1;"
+          edge="1" parent="1" source="mas100" target="desc15">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 15% a cliente frecuente -->
+        <mxCell id="e13"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="desc15" target="frecuente">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- segunda condición NO -->
+        <mxCell id="e14" value="No"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontStyle=1;"
+          edge="1" parent="1" source="mas100" target="frecuente">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- frecuente SÍ -->
+        <mxCell id="e15" value="Sí"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontStyle=1;"
+          edge="1" parent="1" source="frecuente" target="desc5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- +5 a máximo -->
+        <mxCell id="e16"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="desc5" target="max25">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- frecuente NO -->
+        <mxCell id="e17" value="No"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontStyle=1;"
+          edge="1" parent="1" source="frecuente" target="max25">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- >25 SÍ -->
+        <mxCell id="e18" value="Sí"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontStyle=1;"
+          edge="1" parent="1" source="max25" target="desc25">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 25 a total -->
+        <mxCell id="e19"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="desc25" target="total">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- >25 NO -->
+        <mxCell id="e20" value="No"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontStyle=1;"
+          edge="1" parent="1" source="max25" target="total">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e21"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="total" target="retorno">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e22"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="retorno" target="fin">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Retorno vacío hacia FIN -->
+        <mxCell id="e23"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;"
+          edge="1" parent="1" source="retornoCero" target="fin">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="50" y="435"/>
+              <mxPoint x="50" y="1815"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
