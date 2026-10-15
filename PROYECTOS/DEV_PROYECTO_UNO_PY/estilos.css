@@ -1,0 +1,268 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    /* Colores principales */
+    --color-primario: #4f46e5;
+    --color-primario-hover: #4338ca;
+    --color-primario-suave: #eef2ff;
+
+    /* Fondos */
+    --color-fondo: #f8fafc;
+    --color-blanco: #ffffff;
+
+    /* Textos */
+    --color-texto: #1e293b;
+    --color-texto-claro: #64748b;
+
+    /* Bordes */
+    --color-borde: #e2e8f0;
+    --color-borde-focus: #818cf8;
+
+    /* Header */
+    --color-header: #0f172a;
+
+    /* Espaciado */
+    --espacio-sm: 8px;
+    --espacio-md: 16px;
+    --espacio-lg: 24px;
+
+    /* Bordes redondeados */
+    --radio: 10px;
+}
+
+
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6; /* dimensión de línea para mejorar la legibilidad */
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura de la ventana */
+    display: flex;
+    flex-direction: column;
+}
+
+
+header {
+    background-color: var(--color-header);
+    color: var(--color-blanco);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between; /* Espacio entre elementos */
+    align-items: center; 
+    border-bottom: 3px solid var(--color-primario);
+}
+
+
+header h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px; /* Espacio entre los enlaces del menú */
+}
+
+
+nav a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+
+nav a:hover {
+    background-color: #1e293b;
+    color: var(--color-blanco);
+}
+
+
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 0 var(--espacio-md);
+}
+
+
+
+section {
+    background-color: var(--color-blanco);
+    padding: 32px;
+    border: 1px solid var(--color-borde);
+    border-radius: 14px;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.05),
+        0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+
+section h2 {
+    color: var(--color-texto);
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+
+section > p {
+    color: var(--color-texto-claro);
+    margin-bottom: 30px;
+}
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-sm);
+}
+
+
+
+label {
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--color-texto);
+    background-color: #ffffff;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+select:hover,
+textarea:hover {
+    border-color: #cbd5e1;
+}
+
+
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-borde-focus);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+
+
+.ayuda {
+    color: var(--color-texto-claro);
+    font-size: 12px;
+}
+
+
+
+button {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 13px 20px;
+    border: none;
+    border-radius: var(--radio);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        transform 0.1s,
+        box-shadow 0.2s;
+}
+
+button:hover {
+    background-color: var(--color-primario-hover);
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.20);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+footer {
+    background-color: var(--color-header);
+    color: #94a3b8;
+    text-align: center;
+    padding: 18px;
+    font-size: 13px;
+}
+
+@media (max-width: 650px) {
+
+    header {
+        padding: var(--espacio-md);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--espacio-md);
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav a {
+        width: 100%;
+    }
+
+    main {
+        margin: 25px auto;
+    }
+
+    section {
+        padding: 22px;
+    }
+
+    section h2 {
+        font-size: 22px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

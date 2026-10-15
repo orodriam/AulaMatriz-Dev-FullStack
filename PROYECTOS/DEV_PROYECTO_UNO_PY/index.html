@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Despliegue</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="js/app.js" defer></script>
+    <style>
+
+    </style>
+</head>
+
+
+
+<body>
+    <header>
+        <h1>Bienvenido a mi proyecto</h1>
+        <nav>
+            <ul>
+                <li><a href="/repos">Repositorios</a></li>
+                <li><a href="/despliegue">Despliegues</a></li>
+                <li><a href="/historial">Historial</a></li>
+            </ul>
+    </header>
+
+    <main>
+        <section>
+            <h2>Solicitud de Despliegue</h2>
+
+            <p>complete el formulario para enviar su solicitud a revisión</p>
+
+            <form id="formDespliegue" action="/api/despliegues" method="POST">
+
+                <div class="campo">
+                    <label for="repositorio">Repositorio:</label>
+                    <select id="repositorio" name="repositorio" required>
+                        <option value="">Seleccione un repositorio</option>
+                        <option value="portal-web">portal-web</option>
+                        <option value="api-clientes">api-clientes</option>
+                        <option value="app-movil">app-movil</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="rama">Rama a desplegar:</label>
+                    <select id="rama" name="rama" required>
+                        <option value="">Seleccione Rama</option>
+                        <option value="main">main</option>
+                        <option value="develop">develop</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="motivo">Motivo del despliegue:</label>
+                    <textarea id="motivo" name="motivo" rows="4" minlength="20" required
+                        placeholder="Describe el motivo del despliegue..."></textarea>
+                    <span class="ayuda">Mínimo 20 caracteres</span>
+                </div>
+
+                <button id="btnSolicitar" type="submit">Solicitar Despliegue</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Mi Proyecto. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+
+</html>
