@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SRS · Portal de Gestión de Despliegues</title>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({startOnLoad:true,theme:'base',securityLevel:'loose',flowchart:{curve:'basis',htmlLabels:true},themeVariables:{primaryColor:'#eff6ff',primaryTextColor:'#172033',primaryBorderColor:'#2563eb',lineColor:'#64748b',secondaryColor:'#f8fafc',tertiaryColor:'#ecfdf5',fontFamily:'Inter, Segoe UI, Arial'}});
+</script>
+<style>
+:root{--ink:#172033;--text:#334155;--muted:#64748b;--line:#dbe3ee;--blue:#2563eb;--soft:#f8fafc;--green:#0f766e}
+*{box-sizing:border-box}body{margin:0;background:#eef2f7;color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.6}
+.page{width:min(1160px,calc(100% - 32px));margin:28px auto;background:#fff;border:1px solid #e2e8f0;border-radius:20px;overflow:hidden;box-shadow:0 18px 55px rgba(15,23,42,.09)}
+.cover{min-height:690px;padding:78px 72px;position:relative;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle at 90% 10%,rgba(37,99,235,.16),transparent 26%),linear-gradient(145deg,#fff,#f7faff 62%,#eef6ff)}
+.cover:before{content:"";position:absolute;left:0;top:0;width:12px;height:100%;background:linear-gradient(#2563eb,#0f766e)}
+.eyebrow,.section-no{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+h1{max-width:850px;margin:18px 0;font-size:50px;line-height:1.06;letter-spacing:-.04em}h2{margin:0 0 12px;font-size:30px;letter-spacing:-.025em}h3{margin:0 0 6px;font-size:17px}
+.lead{max-width:830px;font-size:20px;color:#526174}.meta,.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.meta{margin-top:64px}
+.meta div{padding:18px 0;border-top:2px solid #cbd5e1}.meta b{display:block;font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+main{padding:12px 66px 70px}section{padding:50px 0;border-top:1px solid var(--line)}section:first-child{border:0}p{color:var(--text)}
+.card,.story,.nfr{padding:20px;border:1px solid var(--line);border-radius:14px;background:#fff}.tag,.id,.badge{display:inline-block;padding:4px 9px;border-radius:20px;background:#eaf2ff;color:#1d4ed8;font-size:11px;font-weight:800}.card b{display:block;margin:8px 0}
+.story{margin:15px 0}.story-head{display:flex;align-items:center;gap:12px}.priority{margin-left:auto;font-size:12px;color:var(--muted)}.quote{font-weight:600;color:var(--ink)}
+.criteria{margin-top:10px;padding:11px 14px;border-left:4px solid var(--green);background:#f0fdfa;border-radius:0 8px 8px 0;color:#28544f}
+.nfr{display:grid;grid-template-columns:50px 1fr;gap:14px;margin:15px 0}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:12px;background:#eff6ff;font-size:21px}
+.diagram{margin:24px 0 10px;padding:24px;overflow:auto;border:1px solid var(--line);border-radius:16px;background:#fbfdff}.caption{text-align:center;color:var(--muted);font-size:13px}
+table{width:100%;margin:22px 0;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:13px;overflow:hidden;font-size:13.5px}th,td{padding:12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}thead th{background:#f1f5f9;font-size:11px;text-transform:uppercase;color:#475569}tbody tr:nth-child(even){background:#fbfdff}
+.footer{padding:25px 66px;background:#0f172a;color:#cbd5e1;font-size:13px}.footer strong{color:#fff}
+@media(max-width:850px){.cover,main{padding-left:28px;padding-right:28px}.meta,.grid{grid-template-columns:1fr}h1{font-size:37px}table{display:block;overflow-x:auto}}
+@media print{@page{size:A4;margin:13mm}body{background:#fff}.page{width:100%;margin:0;border:0;border-radius:0;box-shadow:none}.cover{min-height:255mm;page-break-after:always}main{padding:0}.story,.nfr,.diagram,.card{break-inside:avoid}}
+</style></head>
+<body><div class="page">
+<header class="cover"><div class="eyebrow">Especificación de Requerimientos de Software · SRS</div><h1>Portal Web de Gestión de Despliegues</h1>
+<p class="lead">Definición funcional y no funcional de una aplicación web para gestionar repositorios, solicitudes de despliegue, aprobaciones e historial con trazabilidad.</p>
+<div class="meta"><div><b>Documento</b>Especificación SRS</div><div><b>Sistema</b>Portal de Gestión de Despliegues</div><div><b>Versión</b>1.0 · Documento académico</div></div></header>
+<main>
+<section><div class="section-no">01 · Introducción</div><h2>Propósito del documento</h2><p>Este documento define los requerimientos principales de un Portal Web de Gestión de Despliegues. Describe las funciones del sistema, las condiciones de seguridad y rendimiento y la relación entre cada requerimiento y los componentes visibles de la interfaz.</p>
+<div class="grid"><div class="card"><span class="tag">Objetivo</span><b>Centralizar despliegues</b>Registrar y consultar solicitudes desde una única aplicación.</div><div class="card"><span class="tag">Control</span><b>Aprobaciones</b>Controlar qué solicitudes pueden continuar.</div><div class="card"><span class="tag">Trazabilidad</span><b>Historial</b>Conservar estados, responsables, ambientes y resultados.</div></div></section>
+
+<section><div class="section-no">02 · Alcance</div><h2>Alcance de la aplicación</h2><p>El portal permitirá consultar repositorios, seleccionar un proyecto, registrar solicitudes de despliegue y realizar seguimiento a su estado. Los administradores podrán revisar, aprobar o rechazar solicitudes. El sistema conservará un historial de las operaciones.</p>
+<div class="grid"><div class="card"><b>Repositorios</b>Consulta de proyectos disponibles.</div><div class="card"><b>Solicitudes</b>Registro de nuevos despliegues.</div><div class="card"><b>Seguimiento</b>Consulta de estados.</div><div class="card"><b>Aprobaciones</b>Control administrativo.</div><div class="card"><b>Historial</b>Trazabilidad de operaciones.</div><div class="card"><b>Ambientes</b>Identificación del destino solicitado.</div></div></section>
+
+<section><div class="section-no">03 · Actores</div><h2>Usuarios del sistema</h2><div class="grid"><div class="card"><span class="tag">Actor principal</span><b>Usuario</b>Consulta repositorios, solicita despliegues y revisa estados e historial.</div><div class="card"><span class="tag">Administrador</span><b>Administrador</b>Revisa solicitudes y las aprueba o rechaza.</div><div class="card"><span class="tag">Sistema</span><b>Portal Web</b>Valida datos, permisos y registra operaciones.</div></div></section>
+
+<section><div class="section-no">04 · Requerimientos funcionales</div><h2>Historias de usuario</h2>
+<div class="story"><div class="story-head"><span class="id">RF-01</span><strong>Consultar repositorios</strong><span class="priority">Alta</span></div><p class="quote">Como <b>usuario</b>, quiero consultar los repositorios disponibles para seleccionar el proyecto que necesito desplegar.</p><div class="criteria"><b>Criterio:</b> mostrar los repositorios registrados con su información básica.</div></div>
+<div class="story"><div class="story-head"><span class="id">RF-02</span><strong>Solicitar despliegue</strong><span class="priority">Alta</span></div><p class="quote">Como <b>usuario</b>, quiero solicitar un despliegue indicando repositorio, rama y ambiente para iniciar el proceso de revisión.</p><div class="criteria"><b>Criterio:</b> validar campos obligatorios y registrar la solicitud con un estado inicial.</div></div>
+<div class="story"><div class="story-head"><span class="id">RF-03</span><strong>Consultar estado</strong><span class="priority">Alta</span></div><p class="quote">Como <b>usuario</b>, quiero consultar el estado de mis solicitudes para conocer si están pendientes, aprobadas, rechazadas o finalizadas.</p><div class="criteria"><b>Criterio:</b> mostrar el estado de cada solicitud.</div></div>
+<div class="story"><div class="story-head"><span class="id">RF-04</span><strong>Aprobar o rechazar</strong><span class="priority">Alta</span></div><p class="quote">Como <b>administrador</b>, quiero aprobar o rechazar solicitudes para controlar qué cambios pueden continuar.</p><div class="criteria"><b>Criterio:</b> solo un usuario autorizado podrá ejecutar la decisión.</div></div>
+<div class="story"><div class="story-head"><span class="id">RF-05</span><strong>Consultar historial</strong><span class="priority">Media</span></div><p class="quote">Como <b>usuario o administrador</b>, quiero consultar el historial para mantener trazabilidad de los despliegues.</p><div class="criteria"><b>Criterio:</b> mostrar fecha, repositorio, ambiente, estado y responsable.</div></div></section>
+
+<section><div class="section-no">05 · Requerimientos no funcionales</div><h2>Seguridad y rendimiento</h2>
+<div class="nfr"><div class="icon">🔒</div><div><h3>RNF-01 · HTTPS/SSL</h3><p>Toda comunicación entre navegador y servidor deberá realizarse mediante <b>HTTPS</b> con un certificado SSL/TLS válido. Las solicitudes HTTP deberán redirigirse a HTTPS.</p></div></div>
+<div class="nfr"><div class="icon">🛡️</div><div><h3>RNF-02 · Control de acceso</h3><p>Las funciones administrativas deberán restringirse según el rol. Un usuario sin permisos no podrá aprobar ni rechazar solicitudes.</p></div></div>
+<div class="nfr"><div class="icon">⚡</div><div><h3>RNF-03 · Rendimiento</h3><p>Las consultas habituales deberán responder, bajo condiciones normales, en un tiempo objetivo máximo de <b>2 segundos</b>.</p></div></div></section>
+
+<section><div class="section-no">06 · Vista funcional</div><h2>Relación con la interfaz</h2><p>El diagrama relaciona actores, componentes principales de la interfaz y requerimientos funcionales.</p>
+<div class="diagram"><pre class="mermaid">
+flowchart LR
+    U["Usuario"]
+    A["Administrador"]
+    subgraph UI["PORTAL WEB DE GESTIÓN DE DESPLIEGUES"]
+      direction TB
+      M["Menú principal"]
+      R["Repositorios"]
+      F["Formulario de despliegue"]
+      S["Solicitudes / Estados"]
+      AP["Panel de aprobación"]
+      H["Historial"]
+      M --> R
+      M --> F
+      M --> S
+      M --> H
+      M --> AP
+    end
+    U --> M
+    A --> M
+    R --> RF1["RF-01"]
+    F --> RF2["RF-02"]
+    S --> RF3["RF-03"]
+    AP --> RF4["RF-04"]
+    H --> RF5["RF-05"]
+    classDef actor fill:#fff,stroke:#334155,stroke-width:2px,color:#172033;
+    classDef ui fill:#eff6ff,stroke:#2563eb,stroke-width:1.5px,color:#172033;
+    classDef req fill:#f0fdfa,stroke:#0f766e,stroke-width:1.5px,color:#134e4a;
+    class U,A actor;
+    class M,R,F,S,AP,H ui;
+    class RF1,RF2,RF3,RF4,RF5 req;
+</pre></div><div class="caption">Figura 1. Relación entre actores, interfaz y requerimientos.</div></section>
+
+<section><div class="section-no">07 · Matriz de trazabilidad</div><h2>Requerimiento → interfaz → validación</h2>
+<table><thead><tr><th>ID</th><th>Requerimiento</th><th>Componente UI</th><th>Pantalla</th><th>Validación / evidencia</th></tr></thead><tbody>
+<tr><td><span class="badge">RF-01</span></td><td>Consultar repositorios</td><td>Menú Repositorios + listado</td><td>Repositorios</td><td>Se visualizan repositorios disponibles.</td></tr>
+<tr><td><span class="badge">RF-02</span></td><td>Solicitar despliegue</td><td>Formulario + botón Solicitar</td><td>Nuevo despliegue</td><td>Validación de campos y registro.</td></tr>
+<tr><td><span class="badge">RF-03</span></td><td>Consultar estado</td><td>Tabla + columna Estado</td><td>Solicitudes</td><td>Estado visible por solicitud.</td></tr>
+<tr><td><span class="badge">RF-04</span></td><td>Aprobar o rechazar</td><td>Botones Aprobar / Rechazar</td><td>Revisión</td><td>Disponible solo para administrador.</td></tr>
+<tr><td><span class="badge">RF-05</span></td><td>Consultar historial</td><td>Menú Historial + tabla</td><td>Historial</td><td>Fecha, repositorio, ambiente, estado y responsable.</td></tr>
+<tr><td><span class="badge">RNF-01</span></td><td>HTTPS/SSL</td><td>Aplicación completa</td><td>Todas</td><td>Conexión mediante HTTPS.</td></tr>
+<tr><td><span class="badge">RNF-02</span></td><td>Control de acceso</td><td>Menús y botones protegidos</td><td>Administración</td><td>Permisos según rol.</td></tr>
+<tr><td><span class="badge">RNF-03</span></td><td>Rendimiento</td><td>Formularios, tablas y consultas</td><td>Todas</td><td>Respuesta objetivo ≤ 2 segundos.</td></tr>
+</tbody></table></section>
+
+<section><div class="section-no">08 · Cobertura</div><h2>Validación del entregable</h2><div class="grid"><div class="card"><span class="tag">5 / 5</span><b>Funcionales</b>Historias de usuario y criterios de aceptación.</div><div class="card"><span class="tag">3 / 3</span><b>No funcionales</b>HTTPS/SSL, acceso y rendimiento.</div><div class="card"><span class="tag">100 %</span><b>Trazabilidad</b>Relación con componentes de interfaz.</div></div></section>
+
+<section><div class="section-no">09 · Conclusión</div><h2>Conclusión</h2><p>La especificación establece una base clara para el desarrollo del Portal Web de Gestión de Despliegues. La matriz conecta cada necesidad con elementos concretos de la interfaz, facilitando posteriormente su implementación y validación.</p></section>
+</main>
+<footer class="footer"><strong>Especificación de Requerimientos de Software · SRS</strong><br>Portal Web de Gestión de Despliegues · HTML + Mermaid.</footer>
+</div></body></html>

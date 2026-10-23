@@ -34,6 +34,8 @@ Repositorio de Óscar Iván Rodríguez Amado con ejercicios de clase, talleres y
 |   |   `-- pila_cola.py
 |   |-- Taller_Carrito_JS/
 |   |   `-- carrito.js
+|   |-- Taller_SRS/
+|   |   `-- SRS_Portal_Gestion_Despliegues.html
 |   `-- Taller_Usuarios/
 |       |-- main.py
 |       |-- src/
@@ -57,7 +59,14 @@ Repositorio de Óscar Iván Rodríguez Amado con ejercicios de clase, talleres y
 | Caso de uso de compras | [sistema_gestion_compras_mermaid.html](Talleres/Taller%20Caso%20de%20Uso/sistema_gestion_compras_mermaid.html) | Documento HTML de modelado UML del sistema de gestión de compras con diagramas Mermaid. |
 | Pilas y colas | [pila_cola.py](Talleres/Taller5/pila_cola.py) y [README del taller](Talleres/Taller5/README.md) | Historial de navegación con pilas, peticiones de citas con `deque` y medición de rendimiento. |
 | Carrito de compras | [carrito.js](Talleres/Taller_Carrito_JS/carrito.js) | Validación de productos y stock, cálculo de subtotal y descuentos por tipo de cliente. |
+| Especificación de requerimientos (SRS) | [SRS_Portal_Gestion_Despliegues.html](Talleres/Taller_SRS/SRS_Portal_Gestion_Despliegues.html) | Requerimientos del portal de despliegues, historias de usuario, criterios de aceptación, diagrama funcional y matriz de trazabilidad. |
 | Procesamiento de usuarios | [main.py](Talleres/Taller_Usuarios/main.py), [usuarios.py](Talleres/Taller_Usuarios/src/usuarios.py) y [busqueda.py](Talleres/Taller_Usuarios/src/busqueda.py) | Filtros combinables, búsqueda binaria por ID y pruebas unitarias. |
+
+### Especificación de requerimientos del portal de despliegues
+
+El documento SRS define el propósito, alcance y actores del portal: usuario, administrador y sistema. Incluye cinco requerimientos funcionales para consultar repositorios, solicitar despliegues, consultar estados, aprobar o rechazar solicitudes y consultar el historial.
+
+También especifica tres requerimientos no funcionales: comunicación mediante HTTPS, control de acceso por roles y un tiempo objetivo de respuesta máximo de dos segundos bajo condiciones normales. La matriz de trazabilidad relaciona cada requerimiento con componentes de interfaz y criterios de validación. Estos puntos describen los requisitos previstos del sistema.
 
 ### Carrito de compras
 
@@ -100,7 +109,7 @@ El proyecto contiene archivos HTML, CSS y JavaScript. El formulario declara `/ap
 - **Node.js** para ejecutar los ejercicios JavaScript en la terminal.
 - **Navegador web** para visualizar las páginas HTML.
 - **draw.io / diagrams.net** para editar el archivo `.drawio`.
-- **Conexión a internet** para cargar Mermaid desde el CDN utilizado por el documento del caso de uso.
+- **Conexión a internet** para cargar Mermaid desde el CDN utilizado por los documentos del caso de uso y del SRS.
 
 ## Ejecución
 
@@ -131,6 +140,8 @@ node TrabajosClase/Ejemplo3.js
 ### Páginas HTML y diagramas
 
 Abrir en el navegador el [formulario de despliegue](Proyectos/DEV_PROYECTO_UNO_PY/index.html) o el [documento de gestión de compras](Talleres/Taller%20Caso%20de%20Uso/sistema_gestion_compras_mermaid.html). El diagrama `Talleres/flujo_consultas.drawio` se abre con draw.io / diagrams.net.
+
+Para consultar la especificación del portal, abrir [SRS del Portal de Gestión de Despliegues](Talleres/Taller_SRS/SRS_Portal_Gestion_Despliegues.html) en el navegador. El documento incluye un diagrama Mermaid y estilos para impresión.
 
 ## Pruebas del taller de usuarios
 
